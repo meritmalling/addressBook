@@ -31,6 +31,8 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+'POST /category/:id/person' : 'PersonController.createByName',
+'POST /person/:id/category' : 'CategoryController.connect',
 
   '/': {
     view: 'homepage'
