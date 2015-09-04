@@ -31,12 +31,21 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  '/': 'PagesController.index',
+
+  "get *":{
+    controller:"PagesController",
+    action:"index",
+    skipAssets: true,
+    skipRegex: /^\/api\/.*$/
+},
+
 'POST /category/:id/person' : 'PersonController.createByName',
 'POST /person/:id/category' : 'CategoryController.connect',
 
-  '/': {
-    view: 'homepage'
-  }
+  // '/': {
+  //   view: 'homepage'
+  // }
 
   /***************************************************************************
   *                                                                          *

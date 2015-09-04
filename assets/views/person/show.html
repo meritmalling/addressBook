@@ -1,0 +1,84 @@
+<div>
+        <h2>{{person.firstName}} {{person.lastName}}</h2>
+        <h4><b>Notes:</b> {{person.notes}}</h4>
+        <h4><b>Categories:</b> <a ng-click='addCategoryPerson()' class="glyphicon glyphicon-plus"></a></h4>
+       <div ng-repeat="category in person.category">
+              <p>{{category.category}} <a ng-click='deleteCategory(category)' class='glyphicon glyphicon-trash'></a></p>
+        </div>
+
+       <h4><b>Contacts:</b></h4>
+       <div class='well' ng-repeat="contact in person.contacts">
+           <div class="col-xs-66">
+                <h4>{{contact.name}}</h4>
+                <p>{{contact.email}}</p>
+                <p>{{contact.phone}}</p>
+           </div>
+           <div class="col-xs-66">
+           <a ng-click='editContact(contact)' class='glyphicon glyphicon-pencil'></a>
+           <a ng-click='deleteContact(contact)'class='glyphicon glyphicon-trash'></a>
+           </div>
+        </div>
+</div>
+<div>
+        <form ng-submit='addContact()'>
+                <legend>Add Contact Info</legend>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.name.$touched && newContactForm.name.$invalid }">
+                        <label>Name</label>
+                        <input  name="name" ng-model="newContact.name" type="text" class="form-control">
+                        <div ng-if='newContactForm.name.$touched' ng-messages='newContactForm.name.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.email.$touched && newContactForm.email.$invalid }">
+                        <label>Email</label>
+                        <input  name="email" ng-model="newContact.email" type="text" class="form-control">
+                        <div ng-if='newContactForm.email.$touched' ng-messages='newContactForm.email.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.street.$touched && newContactForm.street.$invalid }">
+                        <label>Street</label>
+                        <input  name="street" ng-model="newContact.street" type="text" class="form-control">
+                        <div ng-if='newContactForm.street.$touched' ng-messages='newContactForm.street.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.city.$touched && newContactForm.city.$invalid }">
+                        <label>City</label>
+                        <input  name="city" ng-model="newContact.city" type="text" class="form-control">
+                        <div ng-if='newContactForm.city.$touched' ng-messages='newContactForm.city.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.state.$touched && newContactForm.state.$invalid }">
+                        <label>State</label>
+                        <input  name="state" ng-model="newContact.state" type="text" class="form-control">
+                        <div ng-if='newContactForm.state.$touched' ng-messages='newContactForm.state.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.zip.$touched && newContactForm.zip.$invalid }">
+                        <label>Zip</label>
+                        <input  name="zip" ng-model="newContact.zip" type="text" class="form-control">
+                        <div ng-if='newContactForm.zip.$touched' ng-messages='newContactForm.zip.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': newContactForm.phone.$touched && newContactForm.phone.$invalid }">
+                        <label>Phone</label>
+                        <input  name="phone" ng-model="newContact.phone" type="text" class="form-control">
+                        <div ng-if='newContactForm.phone.$touched' ng-messages='newContactForm.phone.$error' class='help-block'>
+                                <div ng-messages-include='/views/messages.html'></div>
+                        </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Contact Info</button>
+        </form>
+</div>

@@ -1,0 +1,24 @@
+<h2>Address Book</h2>
+
+<a href='person/new' type="button" class="pull-right btn btn-success glyphicon glyphicon-plus"></a>
+
+<table class="table table-hover">
+        <thead>
+                <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Notes</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr ng-repeat='person in (persons  | orderBy:orderField) track by person.id'>
+                        <td ng-click='orderField="firstName"'><a href='person/{{person.id}}'>{{person.firstName}}</a></td>
+                        <td ng-click='orderField="lastName"'>{{person.lastName}}</td>
+                        <td>{{person.notes}}</td>
+                        <td><a ng-click='editPerson(person)' class='glyphicon glyphicon-pencil'></a></td>
+                        <td><a ng-click='deletePerson(person)' class='glyphicon glyphicon-trash'></a></td>
+                </tr>
+        </tbody>
+</table>
