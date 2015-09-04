@@ -20,7 +20,8 @@ AddressApp .controller('EditContactCtrl', ['$scope', '$modalInstance', 'editCont
         editContact.state = $scope.newContact.state;
         editContact.zip = $scope.newContact.zip;
         editContact.phone = $scope.newContact.phone;
-        editContact.$save().then(function(){
+        var thiseditContact = new Contact(editContact)
+        thiseditContact.$save().then(function(){
                 $modalInstance.close();
         });
       }
